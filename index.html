@@ -1,0 +1,72 @@
+<html>
+
+<head>
+<style>
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.search-box{
+display:flex;
+gap:8px
+}
+input{
+padding:14px;
+width:100%;
+font: size 18px;
+box-sizing:border-box
+}
+</style>
+<title>
+ヨークスch過去動画検索ツール
+</title>  
+</head> 
+
+<body>
+<div class="container">
+<h1>ヨークスch過去動画検索</h1>
+<div class="search-box">
+<input type="text" id="leader" placeholder="検索したいリーダー">
+<button onclick="search()">検索</button>
+<div id="result">ここに結果が表示されます</div>
+</div>
+</div>
+</body>
+
+<script>
+const videos = [
+{title:"紫エネルvs空島ルフィ 2026.5.6",
+leader1:"紫エネル",leader2:"空島ルフィ",
+ url:"https://youtu.be/rRWVyADW7WM?si=9JIxccdx_RnxL4ag"},
+{title:"赤エースop16vs紫エネル 2026.5.6",
+leader1:"赤エースop16",leader2:"紫エネル",
+ url:"https://youtu.be/FTmdJq8Ks4E?si=qtbOgwukj90D3Wa7"}
+]
+
+function search() {
+const keyword = document.getElementById("leader").value;
+const result = document.getElementById("result");
+result.innerHTML = "";
+for (const video of videos){
+if (video.leader1 === keyword || video.leader2 === keyword){
+result.innerHTML += `
+<p>
+<a href="${video.url}" target="_blank">
+${video.title}
+</a>
+</p>
+`;
+}
+}
+}
+</script>
+
+
+
+
+
+
+</html>
+
+
+
